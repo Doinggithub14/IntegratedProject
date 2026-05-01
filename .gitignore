@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Virtual environments
+venv/
+.venv/
+
+# Streamlit and app runtime files
+.streamlit/
+chroma_store/
+tmp/
+*.log
+
+# Environment files
+.env
+.env.*
+
+# OS / editor noise
+.DS_Store
+.vscode/

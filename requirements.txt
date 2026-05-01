@@ -1,0 +1,16 @@
+# UI
+streamlit==1.44.1
+google-genai>=1.0.0,<2.0.0
+
+# The LangChain 0.3 "Legacy Stable" Ecosystem
+# Note: We let these find their own sub-dependencies
+langchain==0.3.22
+langchain-community==0.3.20
+langchain-google-genai>=2.1.0,<3.0.0
+langchain-chroma==0.2.2
+
+# CrewAI & Core Logic
+crewai==0.95.0
+chromadb==0.6.3
+pypdf==5.4.0
+tenacity==9.0.0

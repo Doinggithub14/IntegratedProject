@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: finance-tutor
+  labels:
+    app: finance-tutor
+spec:
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0
+      maxSurge: 1
+  selector:
+    matchLabels:
+      app: finance-tutor
+  template:
+    metadata:
+      labels:
+        app: finance-tutor
+    spec:
+      containers:
+        - name: finance-tutor
+          image: finance-tutor:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8501
+          env:
+            - name: PYTHONUNBUFFERED
+              value: "1"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: finance-tutor-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: finance-tutor
+  ports:
+    - port: 80
+      targetPort: 8501
+      protocol: TCP
